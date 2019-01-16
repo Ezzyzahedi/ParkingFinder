@@ -1,0 +1,493 @@
+  /*Styled for use in edge, firefox, chrome, safari*/
+  html {
+    /*include padding and border for css-grid*/
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    /*include padding and border for css-grid*/
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+    /*map element size*/
+  #map {
+    height: 350px; 
+    width: 100%; 
+  }
+  
+    /*invalid decorator coloring*/
+  input:invalid{
+    border-color: #900;
+    background-color: #FDD;
+  }
+  
+    /*valid decorator coloring*/
+  input:valid{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #2b8176;
+  }
+  
+    /*invalid class coloring*/
+  input.invalid{
+    border-color: #900;
+    background-color: #FDD;
+  }
+
+    /*required font color*/
+  .required {
+    color: #900;
+  }
+  
+  body {
+    /*change default font*/
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h2 {
+    /*style h2 to use as subtitle*/
+    text-align: center;
+    padding: 10px;
+    color: #575654;
+  }
+
+  footer {
+    /*footer must be anchored at bottom of screen and not extend screen with scrollbar
+    absolute will stop this */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*change font and style*/
+    color: #2b8176;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+  
+  .environment {
+    /*create css-grid for edge and chrome/ff/safari
+    want room for header and footer using fixed size 1fr
+    want white space on edges using 1fr*/
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 819.19px 1fr;
+    grid-template-columns: 1fr 819.19px 1fr;
+    -ms-grid-rows: 110px 9fr 1fr;
+    grid-template-rows: 110px 9fr 1fr;
+    background: #7dc2ad;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .title {
+    /*css-grid and visual styling to center the title*/
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    -ms-grid-column-align: center;
+    justify-self: center;
+    color: #2b8176;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+  }
+  
+  .card {
+    /*css-grid for all and edge*/
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 60px 1fr 45px;
+    grid-template-rows: 60px 1fr;
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 2;
+    grid-row: 2;
+    background: #eae7dc;
+    overflow: auto;
+    /*handle box-shadow to make card more appealing*/
+    border-radius: 7px;
+    -webkit-box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.19),
+      0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.19),
+      0 6px 6px rgba(0, 0, 0, 0.23);
+    /* Because scrollbar is typically 18px, reduce margin */
+    margin-right: -18px;
+    margin-left: -18px;
+  }
+  
+  .add-card-text-input {
+    /*text input will just be an underline*/
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #2b8176;
+  }
+  
+  .add-card-textarea {
+    /*textarea will have a box*/
+    outline: none;
+    font-family: 'Arial', sans-serif;
+    border: 1px solid #2b8176;
+    resize: none;
+  }
+
+
+  .upload-btn-wrapper {
+    /*hide default upload form*/
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    /*hide default upload form*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .split {
+    /*used to split two related forms into one line*/
+    display: inline-grid;
+    grid-template-columns: 100px 100px;
+    gap: 10px;
+  }
+
+  .card-rating {
+    /*rating display*/
+    display: inline-block;
+    justify-self: start;
+    color: #8e8d8a;
+
+  }
+  .card-rating * {
+    /*rating alignment and sursor*/
+    float: right;
+    cursor: pointer;
+  }
+  .card-rating input {
+    /*hide the radio buttons*/
+    display: none;
+  }
+  .card-rating label {
+    /*rating icon size*/
+    font-size: 30px;
+  }
+  
+  .card-rating input:checked ~ label {
+    /*rating colour when selected*/
+    color: #2b8176;
+  }
+
+  :-ms-input-placeholder {
+    /*edge placeholder text*/
+    color: #b9b8b4;
+    font-style: italic;
+  }
+
+  ::-ms-input-placeholder {
+    /*edge placeholder text*/
+    color: #b9b8b4;
+    font-style: italic;
+  }
+  
+  ::placeholder {
+    /*all placeholder text*/
+    color: #b9b8b4;
+    font-style: italic;
+  }
+  
+  .nav-button {
+    /*no borders on nav buttons*/
+    background: none;
+    border: none;
+    outline: none;
+  }
+  
+  .delete-orange {
+    /*not used yet, but for any delete or errors*/
+    background: #e85a4f;
+    -ms-grid-column-align: stretch;
+    justify-self: flex-start;
+    text-align: center;
+  }
+  
+  .success-green {
+    /*for any creation or good buttons*/
+    background: #2b8176;
+    color: #eae7dc !important;
+    -ms-grid-column-align: stretch;
+    justify-self: flex-start;
+    text-align: center;
+  }
+
+  .go-right {
+    /*move content right*/
+    justify-self: end;
+  }
+  
+  .nav-bar {
+    /*css-grid creating four even columns and centering their elements*/
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    /*colour and font style*/
+    color: #eae7dc;
+    background: #8e8d8a;
+    font-size: 24px;
+    font-weight: 300;
+  }
+
+  .nav-pill {
+    /*force height to fill area*/
+    height: 100%
+  }
+  
+  .nav-bar .nav-button, .delete-orange, .success-green {
+    /*often-used styling amoungst button-type elements*/
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    height: 100%;
+    padding: 2px 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 3px;
+  }
+
+  .nav-bar .nav-button {
+    /*force width to fill area*/
+    width: 100%;
+  }  
+  
+  .nav-bar .nav-button:hover {
+    /*different hover colour*/
+    background: rgba(87, 86, 84, 0.61);
+  }
+  
+  .active {
+    /*active attr should look depressed*/
+    background: #575654 !important;
+  }
+  
+  .card-body {
+    /*css-grid for body of card, just one col that takes entire space with dynamic rows*/
+    display: -ms-grid;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content;
+    list-style-type: none;
+    overflow: auto;
+  }
+  
+  .card-bar {
+    /*a type of row in the card-body, used for one long line of centered content*/
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 20px;
+    grid-template-columns: 1fr 20px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 20px;
+  }
+
+  .card-row, .card-footer {
+    /*another type of row, both use two css-grid col to display data*/
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 2fr 20px;
+    grid-template-columns: 1fr 2fr 20px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: flex-start;
+    overflow-wrap: break-word;
+    /* word-wrap is now to overflow-wrap but Edge is word-wrap */
+    word-wrap: break-word;
+    padding-left: 20px;
+  }
+  
+  .add-card-text-input, .card-text, .add-card-textarea {
+    /*general text styling*/
+    font-size: 20px;
+    color: #8e8d8a;
+    background: #eae7dc;
+  }
+
+  .card-photo {
+    /*want photos to take up max area*/
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
+  }
+
+  table {
+    /*want table to fill the width*/
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table tr:nth-child(even) {
+    /*colour for even table entry*/
+    background-color: #8e8d8a;
+    color: #eae7dc;
+  }
+  
+  table tr:nth-child(odd) {
+    /*colour for odd table entry*/
+    color: #575654;
+  }
+  table th {
+    /*colour for table header*/
+      background-color: transparent;
+  }
+
+  th, td {
+    /*table element border and align*/
+    border-bottom: 3px solid #2b8176;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .rating-td {
+    /*rating table element width*/
+    width: 110px;
+  }
+
+  .last-td {
+    /*last td is small button*/
+    padding: 0px;
+    text-align: center;
+  }
+
+  .last-td:hover {
+    /*make obvious button*/
+    font-weight: bold;
+  }
+
+  .table-button {
+    /*make table button obviously a button*/
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  .card-icon {
+    /*style for icons on card*/
+    display: inline-block;
+    text-align: justify;
+    cursor: pointer;
+  }
+  
+  .card-text {
+    /*padding for text*/
+    padding-bottom: 26px;
+  }
+  
+  .card-text:focus {
+    /*focused*/
+    outline: none;
+  }
+
+  .card-footer {
+    /*footer for card, used to hold navigation buttons*/
+    padding-top: 5px;
+    padding-bottom: 15px;
+    align-self: end;
+  }
+
+  @media (max-width: 1024px) {
+    /*adjust for any screens 1024px and under*/
+    .environment {
+      /*just a grid adjustment*/
+      -ms-grid-columns: 1fr 8fr 1fr;
+      grid-template-columns: 1fr 8fr 1fr;
+    }
+  }
+  
+  @media (max-width: 680px) {
+    /*adjust for screens 680px and under*/
+    .environment {
+      /*grid adjust for size change*/
+      -ms-grid-columns: 1fr 8fr 1fr;
+      grid-template-columns: 1fr 8fr 1fr;
+      -ms-grid-rows: 73px 9fr 1fr;
+      grid-template-rows: 73px 9fr 1fr;
+    }
+    
+    .logo {
+      width: 40px;
+      height: 35px;
+    }
+
+    .title {
+      /*make header smaller*/
+      font-size: 30px;
+    }
+    
+    .card {
+      /*condense  more*/
+      -ms-grid-rows: 40px 1fr auto;
+      grid-template-rows: 40px 1fr auto;
+    }
+
+    .card-rating * {
+      /*smaller rating icons*/
+      font-size: 0.75em
+    }
+    
+    .add-card-text-input, .card-text, .add-card-textarea {
+      /*smaller text size*/
+    font-size: 16px;
+    }
+
+    th, td {
+      /*smaller border thickness and padding*/
+      border-bottom: 2px solid #2b8176;
+      padding: 5px;
+    }
+    
+    .nav-bar {
+      /*condensed navbar*/
+      -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-row-gap: 8px;
+      font-size: 18px;
+    }
+
+    .card-footer {
+      /*footer takes less room*/
+      padding-bottom: 10px;
+    }
+    
+    :-ms-input-placeholder {
+      /*change placeholder font size smaller*/
+      font-size: 16px;
+    }
+    
+    ::-ms-input-placeholder {
+      /*change placeholder font size smaller*/
+      font-size: 16px;
+    }
+    
+    ::placeholder {
+      /*change placeholder font size smaller*/
+      font-size: 16px;
+    }
+  }
